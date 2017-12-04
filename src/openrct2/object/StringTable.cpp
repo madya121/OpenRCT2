@@ -86,6 +86,15 @@ const utf8 * StringTable::GetString(uint8 id) const
     return nullptr;
 }
 
+void StringTable::SetString(uint8 id, uint8 language, const utf8 * text)
+{
+    StringTableEntry entry;
+    entry.Id = id;
+    entry.LanguageId = language;
+    entry.Text = String::Duplicate(text);
+    _strings.push_back(entry);
+}
+
 void StringTable::Sort()
 {
     std::sort(_strings.begin(), _strings.end(), [](const StringTableEntry &a, const StringTableEntry &b) -> bool

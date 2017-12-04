@@ -42,6 +42,7 @@ public:
     void            Read(IReadObjectContext * context, IStream * stream, uint8 id);
     void            Sort();
     const utf8 *    GetString(uint8 id) const;
+    void            SetString(uint8 id, uint8 language, const utf8 * text);
 };
 
 #endif
